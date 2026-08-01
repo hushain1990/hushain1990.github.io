@@ -176,7 +176,9 @@ section p {
   border-radius: 14px;
   margin-bottom: 16px;
   object-fit: cover;
+  object-position: center;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background: #f3f4f6;
 }
 
 .app-card-icon {
@@ -252,6 +254,7 @@ a.app-card {
   display: flex;
   gap: 8px;
   flex-wrap: wrap;
+  margin-top: 14px;
 }
 
 .hero-subtitle {
@@ -330,37 +333,53 @@ a.app-card {
 .contact-links {
   display: flex;
   flex-wrap: wrap;
-  gap: 16px;
+  gap: 0;
   margin-top: 20px;
+  flex-direction: column;
 }
 
 .contact-btn {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 12px 24px;
-  border-radius: 8px;
-  font-weight: 600;
-  font-size: 0.95rem;
-  transition: transform 0.2s, box-shadow 0.2s;
+  gap: 10px;
+  padding: 10px 0;
+  font-weight: 500;
+  font-size: 0.97rem;
+  color: var(--text);
+  background: none;
+  border-radius: 0;
+  transition: color 0.2s, padding-left 0.2s;
+}
+
+.contact-btn:first-child {
+  border-top: none;
 }
 
 .contact-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  color: var(--primary);
+  padding-left: 6px;
+  transform: none;
+  box-shadow: none;
 }
 
-.contact-btn.email {
-  background: var(--primary);
-  color: var(--white);
+.contact-btn .contact-icon {
+  width: 20px;
+  height: 20px;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  flex-shrink: 0;
 }
 
-.contact-btn.email:hover { color: var(--white); }
+.contact-btn.email .contact-icon  { background: #EEF2FF; color: var(--primary); }
+.contact-btn.linkedin .contact-icon { background: #EFF6FF; color: #0A66C2; }
+.contact-btn.github .contact-icon   { background: #F3F4F6; color: #111827; }
+.contact-btn.play .contact-icon     { background: #F0FDF4; color: #16A34A; }
 
-.contact-btn.outline {
-  background: var(--white);
-  color: var(--text);
-  border: 1px solid var(--border);
+.contact-btn .contact-arrow {
+  display: none;
 }
 
 /* ===== Footer ===== */
@@ -427,14 +446,53 @@ footer a:hover {
 }
 
 /* ===== Responsive ===== */
-@media (max-width: 640px) {
-  .hero h1 { font-size: 1.8rem; }
-  .hero p  { font-size: 1rem; }
-  .hero    { padding: 60px 0 40px; }
+@media (max-width: 768px) {
+  /* Header */
+  .logo { font-size: 1.1rem; }
+  nav { gap: 14px; }
+  nav a { font-size: 0.85rem; }
 
-  nav { gap: 16px; }
-  nav a { font-size: 0.88rem; }
+  /* Hero */
+  .hero { padding: 48px 0 32px; }
+  .hero h1 { font-size: 1.7rem; letter-spacing: -0.5px; }
+  .hero p { font-size: 0.97rem; }
+  .hero-avatar { width: 84px; height: 84px; }
 
-  .policy-content { padding: 28px 20px; }
-  .about-box      { padding: 24px 20px; }
+  /* Sections */
+  section { padding: 40px 0; }
+  section h2 { font-size: 1.3rem; }
+
+  /* App grid - 1 column on mobile */
+  .app-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-top: 20px;
+  }
+
+  /* Mini grid - 2 columns on mobile */
+  .mini-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  /* About box */
+  .about-box { padding: 20px 16px; }
+  .about-box p { font-size: 0.93rem; }
+  .about-box ul { font-size: 0.9rem; }
+
+  /* Contact buttons - wrap naturally on mobile */
+  .contact-links { flex-direction: column; gap: 0; }
+  .contact-btn { width: auto; font-size: 0.9rem; padding: 10px 0; }
+
+  /* Policy */
+  .policy-content { padding: 24px 16px; margin: 20px 0; }
+  .policy-content h1 { font-size: 1.5rem; }
+}
+
+@media (max-width: 400px) {
+  .logo { font-size: 0.95rem; }
+  nav a { font-size: 0.78rem; }
+  nav { gap: 10px; }
+  .hero h1 { font-size: 1.4rem; }
+  .mini-grid { grid-template-columns: 1fr; }
 }
