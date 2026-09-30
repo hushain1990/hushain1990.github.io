@@ -1,27 +1,73 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="teal">
+<!--
+  ============================================================
+  Portfolio Template — a dependency-free single-page portfolio
+  ------------------------------------------------------------
+  Files: index.html · styles.css · script.js
+
+  Quick start
+  1. Replace "Your Name" with your name throughout this file.
+  2. Swap the avatar placeholder, project cards, and links.
+  3. Adjust colors and fonts in the :root block of styles.css.
+  4. Deploy anywhere — no build step required.
+  ============================================================
+-->
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hushan Mubarik Khan — Senior iOS, Android &amp; Flutter Developer | 12+ Years</title>
-  <meta name="description" content="Technical Lead &amp; Senior Mobile Developer with 12+ years building iOS, Android &amp; Flutter apps. Healthcare, EHR integration &amp; custom plugin specialist." />
+  <title>Your Name — Portfolio</title>
+  <meta
+    name="description"
+    content="Portfolio of Your Name — projects, background, and contact details. Built with plain HTML, CSS, and JavaScript."
+  />
   <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
   <meta name="theme-color" content="#0b1020" media="(prefers-color-scheme: dark)" />
   <link
     rel="icon"
-    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%2314b8a6'/%3E%3C/svg%3E"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%236366f1'/%3E%3C/svg%3E"
   />
   <link rel="stylesheet" href="styles.css" />
-  <script>document.documentElement.classList.add('js');</script>
+  <script>
+    document.documentElement.classList.add('js');
+    // Apply the saved color theme before first paint to avoid a flash
+    try {
+      var savedTheme = localStorage.getItem('template-theme');
+      if (savedTheme) document.documentElement.dataset.theme = savedTheme;
+    } catch (e) {}
+  </script>
 </head>
 <body>
 
   <!-- ===== Header ===== -->
   <header class="site-header" id="top">
     <div class="container header-inner">
-      <a href="#top" class="logo">Hushan Mubarik Khan</a>
+      <a href="#top" class="logo">Your Name</a>
 
       <div class="header-tools">
+        <div class="theme-switch">
+          <button
+            class="theme-btn"
+            type="button"
+            aria-label="Choose color theme"
+            aria-expanded="false"
+            aria-controls="theme-menu"
+            title="Color theme"
+          >
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z"/></svg>
+          </button>
+
+          <div class="theme-menu" id="theme-menu" hidden>
+            <button type="button" class="theme-option" data-theme="indigo"><span class="dot" style="--dot:#6366f1"></span>Indigo</button>
+            <button type="button" class="theme-option" data-theme="ocean"><span class="dot" style="--dot:#3b82f6"></span>Ocean Blue</button>
+            <button type="button" class="theme-option" data-theme="emerald"><span class="dot" style="--dot:#10b981"></span>Emerald</button>
+            <button type="button" class="theme-option" data-theme="teal"><span class="dot" style="--dot:#14b8a6"></span>Teal</button>
+            <button type="button" class="theme-option" data-theme="sunset"><span class="dot" style="--dot:#f97316"></span>Sunset Orange</button>
+            <button type="button" class="theme-option" data-theme="rose"><span class="dot" style="--dot:#f43f5e"></span>Rose</button>
+            <button type="button" class="theme-option" data-theme="royal"><span class="dot" style="--dot:#8b5cf6"></span>Royal Purple</button>
+          </div>
+        </div>
+
         <button
           class="nav-toggle"
           type="button"
@@ -49,19 +95,17 @@
     <!-- ===== Hero ===== -->
     <section class="hero">
       <div class="container">
-        <img
-          src="https://github.com/hushain1990.png"
-          alt="Hushan Mubarik Khan"
-          class="avatar-img"
-        />
+        <!-- Replace the initials placeholder with a photo:
+             <img class="avatar-img" src="your-photo.jpg" alt="Your Name" /> -->
+        <div class="avatar" aria-hidden="true">YN</div>
 
         <p class="eyebrow">Hello, I'm</p>
-        <h1>Hushan Mubarik Khan</h1>
-        <p class="hero-role">Mobile Architect &amp; Project Strategist</p>
+        <h1>Your Name</h1>
+        <p class="hero-role">Product Designer &amp; Developer</p>
         <p class="hero-text">
-          Builds high-performance iOS, Android, and Flutter applications with
-          expertise in HIPAA-compliant healthcare solutions, EHR/EMR
-          integrations, and custom plugin development.
+          I design and build clean, accessible digital products from first sketch to
+          shipped release. This page is your home for projects, background, and
+          contact details.
         </p>
 
         <div class="hero-actions">
@@ -77,12 +121,13 @@
         <div class="section-head">
           <h2 class="section-title">Projects</h2>
           <p class="section-subtitle">
-            A selection of production apps I've architected, developed, and
-            shipped across iOS, Android, and Flutter — serving healthcare
-            professionals, businesses, and thousands of users worldwide.
+            A selection of production apps I've architected, developed, and shipped
+            across iOS, Android, and Flutter — serving healthcare professionals,
+            businesses, and thousands of users worldwide.
           </p>
         </div>
 
+        <!-- Project cards — mirrors the live site's Projects section -->
         <div class="project-grid">
 
           <article class="project-card reveal">
@@ -393,37 +438,31 @@
         <div class="about-text reveal">
           <h2 class="section-title">About</h2>
           <p>
-            I'm a Mobile Architect &amp; Project Strategist with over 12 years of
-            experience architecting and delivering high-performance iOS, Android, and
-            Flutter applications. I design project architectures, plan sprints, and lead
-            development from concept to deployment — specializing in healthcare solutions,
-            EHR/EMR integrations, HIPAA compliance, and custom plugin development.
+            I'm a product designer and developer based in your city. For the past
+            few years I have helped teams turn rough ideas into polished, reliable
+            products people actually enjoy using.
           </p>
-          <ul class="bullet-list">
-            <li><strong>iOS</strong> — Swift, Objective-C, SwiftUI, Combine</li>
-            <li><strong>Android</strong> — Kotlin, Java, Jetpack Compose</li>
-            <li><strong>Flutter</strong> — Dart, cross-platform mobile apps</li>
-            <li><strong>Backend</strong> — Node.js, RESTful APIs</li>
-            <li><strong>Data</strong> — Core Data, SwiftData, SQLite</li>
-            <li><strong>Plugin Development</strong> — Custom plugins for Android, iOS &amp; Flutter</li>
-            <li><strong>Healthcare</strong> — EHR/EMR (CureMD, Cerner, Epic), FHIR, HL7, HIPAA</li>
-            <li><strong>DevOps</strong> — Git, Bitbucket, CI/CD pipelines</li>
-          </ul>
+          <p>
+            This template is intentionally dependency-free — plain HTML, CSS, and a
+            sprinkle of JavaScript. Edit the markup, tune the colors in
+            <code>styles.css</code>, and deploy anywhere. No build step, no
+            frameworks, no lock-in.
+          </p>
         </div>
 
         <div class="skills reveal">
           <h3>Toolbox</h3>
           <ul class="skill-chips">
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+            <li>TypeScript</li>
             <li>Swift</li>
-            <li>Objective-C</li>
-            <li>SwiftUI</li>
-            <li>Combine</li>
             <li>Kotlin</li>
-            <li>Java</li>
-            <li>Jetpack Compose</li>
             <li>Flutter</li>
-            <li>Dart</li>
+            <li>React</li>
             <li>Node.js</li>
+            <li>Figma</li>
           </ul>
         </div>
       </div>
@@ -433,18 +472,20 @@
     <section id="contact" class="section">
       <div class="container">
         <div class="contact-panel reveal">
-          <h2>Get in Touch</h2>
-          <p>Let's turn your idea into a polished, production-ready app.</p>
+          <h2>Let's build something together</h2>
+          <p>Have a project in mind, or just want to say hi? My inbox is always open.</p>
 
           <div class="contact-actions">
-            <a href="mailto:hushain1990@hotmail.com" class="btn light">Email Me</a>
+            <a href="mailto:hello@example.com" class="btn light">Say Hello</a>
+            <!-- Resume PDF lives in assets/ — swap the file to update the download -->
             <a href="assets/Hushan-Mubarik-Khan-Resume.pdf" class="btn outline-light" download>Download Resume</a>
           </div>
 
+          <!-- Replace these with your own profile URLs -->
           <div class="contact-social">
-            <a href="https://www.linkedin.com/in/hushan1990" target="_blank" rel="noopener">LinkedIn</a>
-            <a href="https://github.com/hushain1990" target="_blank" rel="noopener">GitHub</a>
-            <a href="https://play.google.com/store/apps/developer?id=Hushan+Mubarik+Khan" target="_blank" rel="noopener">Google Play</a>
+            <a href="https://github.com/" target="_blank" rel="noopener">GitHub</a>
+            <a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>
+            <a href="https://x.com/" target="_blank" rel="noopener">X</a>
           </div>
         </div>
       </div>
@@ -454,11 +495,8 @@
   <!-- ===== Footer ===== -->
   <footer class="site-footer">
     <div class="container">
-      <p>© <span id="year">2026</span> Hushan Mubarik Khan. All rights reserved.</p>
-      <div class="footer-links">
-        <a href="privacy-policy.html">Privacy Policy</a>
-        <a href="#top" class="footer-top">Back to top</a>
-      </div>
+      <p>© <span id="year">2026</span> Your Name. All rights reserved.</p>
+      <a href="#top" class="footer-top">Back to top</a>
     </div>
   </footer>
 
